@@ -8,6 +8,7 @@ const rolePermissions = {
     "schedule.read",
     "schedule.publish",
     "attendance.read",
+    "reports.read",
   ]),
   teacher: new Set([
     "auth.reset",

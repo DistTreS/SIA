@@ -3,6 +3,7 @@ import {
   getScheduleJob,
   getSchedule,
   publishSchedule,
+  listScheduleJobs,
 } from "../repositories/scheduleRepository.js";
 import { recordAudit } from "./auditService.js";
 import { runScheduler } from "./schedulerEngine.js";
@@ -19,6 +20,10 @@ export function generateSchedule({ payload, user }) {
 
 export function getJobStatus(jobId) {
   return getScheduleJob(jobId);
+}
+
+export function listJobs() {
+  return listScheduleJobs();
 }
 
 export function getScheduleInfo() {

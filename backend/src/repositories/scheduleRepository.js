@@ -6,6 +6,9 @@ const schedule = {
   generatedAt: null,
   data: [],
   result: null,
+  input: null,
+  events: [],
+  slots: [],
 };
 
 const jobs = [];
@@ -21,12 +24,19 @@ export function createScheduleJob(payload) {
   schedule.generatedAt = job.createdAt;
   schedule.data = payload?.result?.schedule?.assignments || [];
   schedule.result = payload?.result || null;
+  schedule.input = payload?.input || null;
+  schedule.events = payload?.input?.events || [];
+  schedule.slots = payload?.input?.slots || [];
   schedule.published = false;
   return job;
 }
 
 export function getScheduleJob(jobId) {
   return jobs.find((job) => job.id === jobId) || null;
+}
+
+export function listScheduleJobs() {
+  return [...jobs];
 }
 
 export function getSchedule() {
