@@ -1,0 +1,79 @@
+<%- include("../partials/head", { title, apiBase }) %>
+
+<main class="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr]">
+  <section class="space-y-8">
+    <div class="space-y-4">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+        Sistem Informasi Akademik
+      </span>
+      <h1 class="text-4xl font-semibold leading-tight sm:text-5xl">
+        SMAN 1 Hiliran Gumanti
+      </h1>
+      <p class="text-base text-muted sm:text-lg">
+        Platform terpusat untuk data master, absensi, laporan, dan penjadwalan
+        otomatis CP-SAT + GA.
+      </p>
+    </div>
+    <div class="grid gap-4">
+      <div class="rounded-2xl bg-white/90 p-5 shadow-panel backdrop-blur">
+        <h3 class="text-base font-semibold">Data Master Terstruktur</h3>
+        <p class="mt-2 text-sm text-muted">
+          Kelola guru, siswa, rombel, mapel, ruang, dan jam pelajaran.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white/90 p-5 shadow-panel backdrop-blur">
+        <h3 class="text-base font-semibold">Absensi Real-time</h3>
+        <p class="mt-2 text-sm text-muted">
+          Catat kehadiran harian dan pantau rekap kelas maupun siswa.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white/90 p-5 shadow-panel backdrop-blur">
+        <h3 class="text-base font-semibold">Jadwal Adaptif</h3>
+        <p class="mt-2 text-sm text-muted">
+          Optimasi jadwal dengan hybrid CP-SAT + GA untuk minim bentrok.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rounded-3xl bg-white/95 p-8 shadow-panel backdrop-blur">
+    <div class="mb-6 space-y-1">
+      <p class="text-xl font-semibold">Masuk ke Dashboard</p>
+      <span class="text-sm text-muted">Gunakan akun yang sudah di-seed</span>
+    </div>
+    <form class="space-y-4" id="login-form">
+      <label class="block text-sm font-medium text-ink">
+        Username
+        <input
+          class="mt-2 w-full rounded-2xl border border-[#e4d8c9] bg-[#fffaf2] px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent/40"
+          type="text"
+          id="username"
+          placeholder="admin"
+          required
+        />
+      </label>
+      <label class="block text-sm font-medium text-ink">
+        Password
+        <input
+          class="mt-2 w-full rounded-2xl border border-[#e4d8c9] bg-[#fffaf2] px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent/40"
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          required
+        />
+      </label>
+      <button
+        class="w-full rounded-full bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent-dark"
+        type="submit"
+      >
+        Masuk
+      </button>
+      <p class="min-h-[1.2rem] text-sm text-red-600" id="login-error"></p>
+    </form>
+    <div class="mt-6 text-xs text-muted">
+      Butuh bantuan? Hubungi Admin TU.
+    </div>
+  </section>
+</main>
+
+<%- include("../partials/foot", { scripts: ["/assets/login.js"] }) %>

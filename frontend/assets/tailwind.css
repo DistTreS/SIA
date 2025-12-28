@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-space text-ink bg-sand;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply rounded-xl px-3 py-2 text-sm text-latte transition hover:bg-[#2f2720];
+  }
+
+  .nav-item.active {
+    @apply bg-[#2f2720] font-semibold;
+  }
+
+  .btn-ghost {
+    @apply rounded-full border border-[#e4d8c9] bg-transparent text-ink transition hover:border-accent hover:text-accent;
+  }
+}

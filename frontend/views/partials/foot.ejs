@@ -1,0 +1,7 @@
+    <% if (scripts && scripts.length) { %>
+      <% scripts.forEach((script) => { %>
+        <script src="<%= script %>" defer></script>
+      <% }); %>
+    <% } %>
+  </body>
+</html>

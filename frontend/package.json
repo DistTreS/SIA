@@ -3,15 +3,21 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo 'frontend dev server placeholder'",
-    "build": "echo 'frontend build placeholder'",
-    "start": "echo 'frontend start placeholder'",
+    "dev": "node server.js",
+    "dev:css": "tailwindcss -i ./assets/tailwind.css -o ./public/assets/app.css --watch",
+    "build:css": "tailwindcss -i ./assets/tailwind.css -o ./public/assets/app.css --minify",
+    "start": "node server.js",
     "lint": "eslint .",
     "format": "prettier --write ."
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
   },
   "devDependencies": {
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.15"
   }
 }
