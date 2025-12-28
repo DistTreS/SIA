@@ -12,11 +12,13 @@ const schedule = {
 };
 
 const jobs = [];
+const performanceLogs = [];
 
 export function createScheduleJob(payload) {
   const job = {
     id: randomUUID(),
-    status: "completed",
+    status: "RUNNING",
+    progress: 0,
     createdAt: new Date().toISOString(),
     ...payload,
   };
@@ -47,4 +49,18 @@ export function publishSchedule() {
   schedule.published = true;
   schedule.publishedAt = new Date().toISOString();
   return schedule;
+}
+
+export function recordSchedulePerformance(entry) {
+  const record = {
+    id: randomUUID(),
+    createdAt: new Date().toISOString(),
+    ...entry,
+  };
+  performanceLogs.push(record);
+  return record;
+}
+
+export function listSchedulePerformance() {
+  return [...performanceLogs];
 }
