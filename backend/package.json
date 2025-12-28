@@ -3,11 +3,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "echo 'backend dev server placeholder'",
+    "dev": "node src/index.js",
     "build": "echo 'backend build placeholder'",
-    "start": "echo 'backend start placeholder'",
+    "start": "node src/index.js",
     "lint": "eslint .",
     "format": "prettier --write ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "eslint": "^9.9.0",
