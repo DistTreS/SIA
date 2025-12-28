@@ -1,0 +1,17 @@
+{
+  "name": "sia-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'backend dev server placeholder'",
+    "build": "echo 'backend build placeholder'",
+    "start": "echo 'backend start placeholder'",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3"
+  }
+}

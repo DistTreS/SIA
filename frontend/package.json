@@ -1,0 +1,17 @@
+{
+  "name": "sia-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'frontend dev server placeholder'",
+    "build": "echo 'frontend build placeholder'",
+    "start": "echo 'frontend start placeholder'",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3"
+  }
+}
