@@ -2,6 +2,7 @@ import {
   inputAttendanceSession,
   recapByClass,
   recapByStudent,
+  getTodaySchedule,
 } from "../services/attendanceService.js";
 
 export function inputSession(req, res, next) {
@@ -33,4 +34,13 @@ export function recapStudent(req, res) {
   const { studentId } = req.params;
   const data = recapByStudent(studentId);
   res.json({ data });
+}
+
+export function todayScheduleHandler(req, res, next) {
+  try {
+    const data = getTodaySchedule(req.query.date);
+    return res.json({ data });
+  } catch (error) {
+    return next(error);
+  }
 }
