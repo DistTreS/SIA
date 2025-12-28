@@ -6,10 +6,9 @@ const schedule = {
   generatedAt: null,
   data: [],
   result: null,
-  lastJobId: null,
-  lastJobStatus: null,
-  lastJobUpdatedAt: null,
-  lastPerformance: null,
+  input: null,
+  events: [],
+  slots: [],
 };
 
 const jobs = [];
@@ -24,9 +23,13 @@ export function createScheduleJob(payload) {
     ...payload,
   };
   jobs.push(job);
-  schedule.lastJobId = job.id;
-  schedule.lastJobStatus = job.status;
-  schedule.lastJobUpdatedAt = job.createdAt;
+  schedule.generatedAt = job.createdAt;
+  schedule.data = payload?.result?.schedule?.assignments || [];
+  schedule.result = payload?.result || null;
+  schedule.input = payload?.input || null;
+  schedule.events = payload?.input?.events || [];
+  schedule.slots = payload?.input?.slots || [];
+  schedule.published = false;
   return job;
 }
 
@@ -34,27 +37,8 @@ export function getScheduleJob(jobId) {
   return jobs.find((job) => job.id === jobId) || null;
 }
 
-export function updateScheduleJob(jobId, updates) {
-  const job = getScheduleJob(jobId);
-  if (!job) return null;
-  const updatedAt = updates?.updatedAt || new Date().toISOString();
-  Object.assign(job, updates, { updatedAt });
-  schedule.lastJobId = job.id;
-  schedule.lastJobStatus = job.status;
-  schedule.lastJobUpdatedAt = updatedAt;
-
-  if (updates?.result && job.status === "SUCCESS") {
-    schedule.generatedAt = job.completedAt || updatedAt;
-    schedule.data = updates.result?.schedule?.assignments || [];
-    schedule.result = updates.result || null;
-    schedule.published = false;
-  }
-
-  if (updates?.performance) {
-    schedule.lastPerformance = updates.performance;
-  }
-
-  return job;
+export function listScheduleJobs() {
+  return [...jobs];
 }
 
 export function getSchedule() {

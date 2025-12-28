@@ -3,6 +3,7 @@ import {
   getJobStatus,
   getScheduleInfo,
   publishScheduleJob,
+  listJobs,
 } from "../services/scheduleService.js";
 
 export function generateHandler(req, res) {
@@ -17,6 +18,11 @@ export function jobStatusHandler(req, res) {
     return res.status(404).json({ message: "Job not found" });
   }
   return res.json({ data: job });
+}
+
+export function jobsListHandler(_req, res) {
+  const jobs = listJobs();
+  return res.json({ data: jobs });
 }
 
 export function scheduleInfoHandler(_req, res) {
