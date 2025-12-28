@@ -6,7 +6,7 @@ import {
 } from "../services/scheduleService.js";
 
 export function generateHandler(req, res) {
-  const job = generateSchedule({ data: req.body?.data || [], user: req.user });
+  const job = generateSchedule({ payload: req.body || {}, user: req.user });
   res.status(202).json({ data: job });
 }
 
