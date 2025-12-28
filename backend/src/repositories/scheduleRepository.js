@@ -5,6 +5,7 @@ const schedule = {
   published: false,
   generatedAt: null,
   data: [],
+  result: null,
 };
 
 const jobs = [];
@@ -18,7 +19,8 @@ export function createScheduleJob(payload) {
   };
   jobs.push(job);
   schedule.generatedAt = job.createdAt;
-  schedule.data = payload?.data || [];
+  schedule.data = payload?.result?.schedule?.assignments || [];
+  schedule.result = payload?.result || null;
   schedule.published = false;
   return job;
 }

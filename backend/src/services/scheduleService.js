@@ -5,9 +5,15 @@ import {
   publishSchedule,
 } from "../repositories/scheduleRepository.js";
 import { recordAudit } from "./auditService.js";
+import { runScheduler } from "./schedulerEngine.js";
 
-export function generateSchedule({ data, user }) {
-  const job = createScheduleJob({ data, requestedBy: user.id });
+export function generateSchedule({ payload, user }) {
+  const result = runScheduler(payload || {});
+  const job = createScheduleJob({
+    input: payload || {},
+    result,
+    requestedBy: user?.id || "system",
+  });
   return job;
 }
 
